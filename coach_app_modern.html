@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>مذكرة الكوتش - دمشق محافظة</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px 15px;
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            padding: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 12px 8px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            min-width: 80px;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .tab-btn i {
+            margin-left: 8px;
+            font-size: 1rem;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-header i {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-left: 15px;
+        }
+
+        .card-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* Input Groups */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 15px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fafbfc;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4CAF50;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            min-height: 50px;
+        }
+
+        .btn i {
+            margin-left: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 0.85rem;
+            min-height: 35px;
+        }
+
+        /* Task Items */
+        .task-item, .note-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 4px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+
+        .task-item:hover, .note-item:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+        }
+
+        .task-item.completed {
+            opacity: 0.7;
+            border-left-color: #95a5a6;
+        }
+
+        .task-item.completed .task-text {
+            text-decoration: line-through;
+            color: #7f8c8d;
+        }
+
+        .task-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .task-content {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .task-text {
+            flex: 1;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .task-time {
+            background: #e8f5e8;
+            color: #4CAF50;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-right: 10px;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        /* Timer Display */
+        .timer-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* Table Responsive */
+        .table-container {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .table {
+            width: 100%;
+            background: white;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+
+        .table th {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .table td {
+            padding: 12px 10px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            font-size: 0.85rem;
+        }
+
+        .table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* Form Grid */
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            max-width: 300px;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-left: 4px solid #4CAF50;
+        }
+
+        .notification.error {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .notification.warning {
+            border-left: 4px solid #f39c12;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 10px;
+            }
+
+            .card {
+                padding: 20px 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .task-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .task-actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+
+            .timer-display {
+                font-size: 1.5rem;
+            }
+
+            .tab-btn {
+                font-size: 0.75rem;
+                padding: 10px 6px;
+            }
+
+            .notification {
+                right: 10px;
+                left: 10px;
+                max-width: none;
+                transform: translateY(-100px);
+            }
+
+            .notification.show {
+                transform: translateY(0);
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+                color: #ecf0f1;
+            }
+
+            .card {
+                background: #34495e;
+                border: 1px solid #4a5f7a;
+            }
+
+            .form-control {
+                background: #2c3e50;
+                border-color: #4a5f7a;
+                color: #ecf0f1;
+            }
+
+            .task-item, .note-item {
+                background: #34495e;
+                color: #ecf0f1;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+
+        .empty-state h4 {
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .empty-state p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1><i class="fas fa-clipboard-list"></i> مذكرة الكوتش</h1>
+        <div class="subtitle">دمشق محافظة</div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('tasks')">
+                <i class="fas fa-tasks"></i>
+                المهام
+            </button>
+            <button class="tab-btn" onclick="switchTab('notes')">
+                <i class="fas fa-sticky-note"></i>
+                الملاحظات
+            </button>
+            <button class="tab-btn" onclick="switchTab('transactions')">
+                <i class="fas fa-table"></i>
+                الجدول
+            </button>
+            <button class="tab-btn" onclick="switchTab('traders')">
+                <i class="fas fa-users"></i>
+                التجار
+            </button>
+        </div>
+
+        <!-- Tasks Tab -->
+        <div id="tasks" class="tab-content active">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-plus-circle"></i>
+                    <h3>إضافة مهمة جديدة</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label for="taskInput">نص المهمة</label>
+                    <input type="text" id="taskInput" class="form-control" placeholder="أدخل المهمة الجديدة...">
+                </div>
+
+                <div class="input-group">
+                    <label for="taskTime">وقت المهمة (بالدقائق)</label>
+                    <input type="number" id="taskTime" class="form-control" placeholder="مثال: 30" min="1" max="1440">
+                </div>
+
+                <button class="btn btn-primary" onclick="addTask()">
+                    <i class="fas fa-plus"></i>
+                    إضافة المهمة
+                </button>
+            </div>
+
+            <!-- Timer Display -->
+            <div id="timerCard" class="card" style="display: none;">
+                <div class="timer-display" id="timerDisplay">00:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary btn-sm" onclick="startTimer()">
+                        <i class="fas fa-play"></i>
+                        بدء
+                    </button>
+                    <button class="btn btn-secondary btn-sm" onclick="pauseTimer()">
+                        <i class="fas fa-pause"></i>
+                        إيقاف
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="resetTimer()">
+                        <i class="fas fa-stop"></i>
+                        إعادة تعيين
+                    </button>
+                </div>
+            </div>
+
+            <!-- Tasks List -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-list"></i>
+                    <h3>المهام اليومية</h3>
+                </div>
+                <div id="tasksList"></div>
+            </div>
+        </div>
+
+        <!-- Notes Tab -->
+        <div id="notes" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-edit"></i>
+                    <h3>إضافة ملاحظة جديدة</h3>
+                </div>
+                
+                <div class="input-group">
+                    <label for="noteInput">نص الملاحظة</label>
+                    <textarea id="noteInput" class="form-control" rows="4" placeholder="أدخل ملاحظتك هنا..."></textarea>
+                </div>
+
+                <button class="btn btn-primary" onclick="addNote()">
+                    <i class="fas fa-save"></i>
+                    حفظ الملاحظة
+                </button>
+            </div>
+
+            <!-- Notes List -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-sticky-note"></i>
+                    <h3>الملاحظات المحفوظة</h3>
+                </div>
+                <div id="notesList"></div>
+            </div>
+        </div>
+
+        <!-- Transactions Tab -->
+        <div id="transactions" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-plus"></i>
+                    <h3>إضافة عملية جديدة</h3>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="transDate">التاريخ</label>
+                        <input type="date" id="transDate" class="form-control">
+                    </div>
+                    <div class="input-group">
+                        <label for="transOperation">العملية</label>
+                        <input type="text" id="transOperation" class="form-control" placeholder="وصف العملية">
+                    </div>
+                    <div class="input-group">
+                        <label for="transPay">دفع</label>
+                        <input type="number" id="transPay" class="form-control" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="transReceive">قبض</label>
+                        <input type="number" id="transReceive" class="form-control" placeholder="0">
+                    </div>
+                    <div class="input-group">
+                        <label for="transCall">مكالمة</label>
+                        <input type="text" id="transCall" class="form-control" placeholder="تفاصيل المكالمة">
+                    </div>
+                    <div class="input-group">
+                        <label for="transContact">اتصال</label>
+                        <input type="text" id="transContact" class="form-control" placeholder="معلومات الاتصال">
+                    </div>
+                    <div class="input-group">
+                        <label for="transOther">أخرى</label>
+                        <input type="text" id="transOther" class="form-control" placeholder="معلومات إضافية">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="addTransaction()">
+                    <i class="fas fa-plus"></i>
+                    إضافة العملية
+                </button>
+            </div>
+
+            <!-- Transactions Table -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    <h3>جدول العمليات</h3>
+                </div>
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>العملية</th>
+                                <th>دفع</th>
+                                <th>قبض</th>
+                                <th>مكالمة</th>
+                                <th>اتصال</th>
+                                <th>أخرى</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsList"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Traders Tab -->
+        <div id="traders" class="tab-content">
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-user-plus"></i>
+                    <h3>إضافة تاجر جديد</h3>
+                </div>
+                
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="traderName">اسم التاجر</label>
+                        <input type="text" id="traderName" class="form-control" placeholder="أدخل اسم التاجر">
+                    </div>
+                    <div class="input-group">
+                        <label for="traderAmount">المبلغ</label>
+                        <input type="number" id="traderAmount" class="form-control" placeholder="أدخل المبلغ">
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="addTrader()">
+                    <i class="fas fa-user-plus"></i>
+                    إضافة التاجر
+                </button>
+            </div>
+
+            <!-- Traders List -->
+            <div class="card">
+                <div class="card-header">
+                    <i class="fas fa-users"></i>
+                    <h3>قائمة التجار</h3>
+                </div>
+                <div id="tradersList"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div style="position: fixed; bottom: 20px; left: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1000;">
+        <a href="#" class="whatsapp-btn" onclick="sendWhatsAppNotification()" title="إرسال إشعار واتساب">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button onclick="sendDailySummary()" class="whatsapp-btn" style="background: #667eea; animation: none;" title="الملخص اليومي">
+            <i class="fas fa-chart-bar"></i>
+        </button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Global Variables
+        let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        let notes = JSON.parse(localStorage.getItem('notes')) || [];
+        let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+        let traders = JSON.parse(localStorage.getItem('traders')) || [];
+        
+        let currentTimer = null;
+        let timerInterval = null;
+        let timerSeconds = 0;
+        let isTimerRunning = false;
+
+        // Utility Functions
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                        <span style="margin-right: 10px;">${message}</span>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; font-size: 1.2rem; cursor: pointer; color: #666;">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function validateInput(input, message) {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                showNotification(message, 'error');
+                return false;
+            }
+            input.classList.remove('error');
+            return true;
+        }
+
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Task Management
+        function addTask() {
+            const taskInput = document.getElementById('taskInput');
+            const timeInput = document.getElementById('taskTime');
+            
+            if (!validateInput(taskInput, 'الرجاء إدخال نص المهمة')) return;
+            
+            const task = {
+                id: Date.now(),
+                text: taskInput.value.trim(),
+                time: timeInput.value ? parseInt(timeInput.value) : null,
+                completed: false,
+                createdAt: new Date().toISOString()
+            };
+            
+            tasks.push(task);
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+            
+            taskInput.value = '';
+            timeInput.value = '';
+            
+            showNotification('تم إضافة المهمة بنجاح');
+        }
+
+        function toggleTask(id) {
+            tasks = tasks.map(task => {
+                if (task.id === id) {
+                    task.completed = !task.completed;
+                    if (task.completed) {
+                        showNotification('تم إنجاز المهمة!', 'success');
+                        sendTaskCompletionNotification(task.text);
+                    }
+                }
+                return task;
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            renderTasks();
+        }
+
+        function deleteTask(id) {
+            if (confirm('هل أنت متأكد من حذف هذه المهمة؟')) {
+                tasks = tasks.filter(task => task.id !== id);
+                localStorage.setItem('tasks', JSON.stringify(tasks));
+                renderTasks();
+                showNotification('تم حذف المهمة', 'warning');
+            }
+        }
+
+        function startTaskTimer(id) {
+            const task = tasks.find(t => t.id === id);
+            if (!task || !task.time) return;
+            
+            currentTimer = id;
+            timerSeconds = task.time * 60;
+            document.getElementById('timerCard').style.display = 'block';
+            updateTimerDisplay();
+            startTimer();
+        }
+
+        function renderTasks() {
+            const tasksList = document.getElementById('tasksList');
+            
+            if (tasks.length === 0) {
+                tasksList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-tasks"></i>
+                        <h4>لا توجد مهام</h4>
+                        <p>أضف مهمة جديدة للبدء</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            tasksList.innerHTML = tasks.map(task => `
+                <div class="task-item ${task.completed ? 'completed' : ''}">
+                    <div class="task-header">
+                        <div class="task-content">
+                            <input type="checkbox" class="task-checkbox" ${task.completed ? 'checked' : ''} 
+                                   onchange="toggleTask(${task.id})">
+                            <span class="task-text">${task.text}</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            ${task.time ? `<span class="task-time">${task.time} دقيقة</span>` : ''}
+                            <div class="task-actions">
+                                ${task.time && !task.completed ? `<button class="btn btn-primary btn-sm" onclick="startTaskTimer(${task.id})"><i class="fas fa-play"></i></button>` : ''}
+                                <button class="btn btn-danger btn-sm" onclick="deleteTask(${task.id})"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Timer Functions
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timerSeconds / 60);
+            const seconds = timerSeconds % 60;
+            const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            document.getElementById('timerDisplay').textContent = display;
+            
+            // Change color based on remaining time
+            const timerDisplay = document.getElementById('timerDisplay');
+            if (timerSeconds <= 60) {
+                timerDisplay.style.background = 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)';
+            } else if (timerSeconds <= 300) {
+                timerDisplay.style.background = 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)';
+            } else {
+                timerDisplay.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+            }
+        }
+
+        function startTimer() {
+            if (isTimerRunning) return;
+            
+            isTimerRunning = true;
+            timerInterval = setInterval(() => {
+                if (timerSeconds > 0) {
+                    timerSeconds--;
+                    updateTimerDisplay();
+                    
+                    // Warning notifications
+                    if (timerSeconds === 300) { // 5 minutes warning
+                        showNotification('تبقى 5 دقائق على انتهاء المهمة', 'warning');
+                        playNotificationSound();
+                    } else if (timerSeconds === 60) { // 1 minute warning
+                        showNotification('تبقت دقيقة واحدة على انتهاء المهمة!', 'warning');
+                        playNotificationSound();
+                        vibrateDevice();
+                    } else if (timerSeconds <= 10 && timerSeconds > 0) { // Countdown
+                        showNotification(`${timerSeconds}`, 'warning');
+                        playNotificationSound();
+                        vibrateDevice();
+                    }
+                } else {
+                    // Timer finished
+                    clearInterval(timerInterval);
+                    isTimerRunning = false;
+                    
+                    // Multiple notification methods
+                    showNotification('انتهى الوقت المحدد للمهمة!', 'error');
+                    playAlarmSound();
+                    vibrateDevice(1000);
+                    showTimerFinishedModal();
+                    
+                    // Browser notification
+                    if ('Notification' in window && Notification.permission === 'granted') {
+                        new Notification('مذكرة الكوتش - انتهى الوقت!', {
+                            body: 'انتهى الوقت المحدد للمهمة!',
+                            icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">⏰</text></svg>',
+                            requireInteraction: true,
+                            tag: 'timer-finished'
+                        });
+                    }
+                    
+                    // Send WhatsApp notification
+                    const task = tasks.find(t => t.id === currentTimer);
+                    if (task) {
+                        setTimeout(() => {
+                            sendTimerFinishedNotification(task.text, task.time);
+                        }, 2000);
+                    }
+                }
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                showNotification('تم إيقاف المؤقت مؤقتاً', 'warning');
+            }
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            const task = tasks.find(t => t.id === currentTimer);
+            if (task && task.time) {
+                timerSeconds = task.time * 60;
+                updateTimerDisplay();
+                showNotification('تم إعادة تعيين المؤقت');
+            }
+        }
+
+        // Sound and Vibration Functions
+        function playNotificationSound() {
+            try {
+                // Create audio context for notification sound
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.3);
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        function playAlarmSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Play multiple beeps for alarm
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
+                        gainNode.gain.setValueAtTime(0.5, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                        
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.5);
+                    }, i * 600);
+                }
+            } catch (e) {
+                console.log('Audio not supported');
+            }
+        }
+
+        function vibrateDevice(duration = 200) {
+            if ('vibrate' in navigator) {
+                navigator.vibrate(duration);
+            }
+        }
+
+        function showTimerFinishedModal() {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 10000;
+                animation: fadeIn 0.3s ease;
+            `;
+            
+            modal.innerHTML = `
+                <div style="
+                    background: white;
+                    padding: 40px;
+                    border-radius: 20px;
+                    text-align: center;
+                    max-width: 90%;
+                    animation: slideIn 0.3s ease;
+                ">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">⏰</div>
+                    <h2 style="color: #e74c3c; margin-bottom: 15px;">انتهى الوقت!</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px; color: #666;">
+                        انتهى الوقت المحدد للمهمة
+                    </p>
+                    <button onclick="this.parentElement.parentElement.remove()" 
+                            style="
+                                background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+                                color: white;
+                                border: none;
+                                padding: 15px 30px;
+                                border-radius: 25px;
+                                font-size: 1rem;
+                                font-weight: 600;
+                                cursor: pointer;
+                            ">
+                        موافق
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Auto remove after 10 seconds
+            setTimeout(() => {
+                if (modal.parentElement) {
+                    modal.remove();
+                }
+            }, 10000);
+        }
+
+        // Notes Management
+        function addNote() {
+            const noteInput = document.getElementById('noteInput');
+            
+            if (!validateInput(noteInput, 'الرجاء إدخال نص الملاحظة')) return;
+            
+            const note = {
+                id: Date.now(),
+                text: noteInput.value.trim(),
+                createdAt: new Date().toISOString()
+            };
+            
+            notes.push(note);
+            localStorage.setItem('notes', JSON.stringify(notes));
+            renderNotes();
+            
+            noteInput.value = '';
+            showNotification('تم حفظ الملاحظة بنجاح');
+        }
+
+        function deleteNote(id) {
+            if (confirm('هل أنت متأكد من حذف هذه الملاحظة؟')) {
+                notes = notes.filter(note => note.id !== id);
+                localStorage.setItem('notes', JSON.stringify(notes));
+                renderNotes();
+                showNotification('تم حذف الملاحظة', 'warning');
+            }
+        }
+
+        function renderNotes() {
+            const notesList = document.getElementById('notesList');
+            
+            if (notes.length === 0) {
+                notesList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-sticky-note"></i>
+                        <h4>لا توجد ملاحظات</h4>
+                        <p>أضف ملاحظة جديدة للبدء</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            notesList.innerHTML = notes.map(note => `
+                <div class="note-item">
+                    <div class="task-header">
+                        <div class="task-content">
+                            <span class="task-text">${note.text}</span>
+                        </div>
+                        <div class="task-actions">
+                            <button class="btn btn-danger btn-sm" onclick="deleteNote(${note.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.8rem; color: #666; margin-top: 10px;">
+                        ${new Date(note.createdAt).toLocaleString('ar-SA')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Transaction Management
+        function addTransaction() {
+            const dateInput = document.getElementById('transDate');
+            const operationInput = document.getElementById('transOperation');
+            
+            if (!validateInput(dateInput, 'الرجاء إدخال التاريخ')) return;
+            if (!validateInput(operationInput, 'الرجاء إدخال وصف العملية')) return;
+            
+            const transaction = {
+                id: Date.now(),
+                date: dateInput.value,
+                operation: operationInput.value.trim(),
+                pay: document.getElementById('transPay').value || '0',
+                receive: document.getElementById('transReceive').value || '0',
+                call: document.getElementById('transCall').value.trim(),
+                contact: document.getElementById('transContact').value.trim(),
+                other: document.getElementById('transOther').value.trim()
+            };
+            
+            transactions.push(transaction);
+            localStorage.setItem('transactions', JSON.stringify(transactions));
+            renderTransactions();
+            
+            // Clear form
+            ['transDate', 'transOperation', 'transPay', 'transReceive', 'transCall', 'transContact', 'transOther'].forEach(id => {
+                document.getElementById(id).value = '';
+            });
+            
+            showNotification('تم إضافة العملية بنجاح');
+        }
+
+        function deleteTransaction(id) {
+            if (confirm('هل أنت متأكد من حذف هذه العملية؟')) {
+                transactions = transactions.filter(trans => trans.id !== id);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+                renderTransactions();
+                showNotification('تم حذف العملية', 'warning');
+            }
+        }
+
+        function renderTransactions() {
+            const transactionsList = document.getElementById('transactionsList');
+            
+            if (transactions.length === 0) {
+                transactionsList.innerHTML = `
+                    <tr>
+                        <td colspan="8" style="text-align: center; padding: 40px; color: #666;">
+                            <i class="fas fa-table" style="font-size: 2rem; margin-bottom: 10px; opacity: 0.5;"></i><br>
+                            لا توجد عمليات مسجلة
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+            
+            transactionsList.innerHTML = transactions.map(trans => `
+                <tr>
+                    <td>${trans.date}</td>
+                    <td>${trans.operation}</td>
+                    <td>${trans.pay}</td>
+                    <td>${trans.receive}</td>
+                    <td>${trans.call}</td>
+                    <td>${trans.contact}</td>
+                    <td>${trans.other}</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" onclick="deleteTransaction(${trans.id})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Trader Management
+        function addTrader() {
+            const nameInput = document.getElementById('traderName');
+            const amountInput = document.getElementById('traderAmount');
+            
+            if (!validateInput(nameInput, 'الرجاء إدخال اسم التاجر')) return;
+            if (!validateInput(amountInput, 'الرجاء إدخال المبلغ')) return;
+            
+            const trader = {
+                id: Date.now(),
+                name: nameInput.value.trim(),
+                amount: amountInput.value,
+                createdAt: new Date().toISOString()
+            };
+            
+            traders.push(trader);
+            localStorage.setItem('traders', JSON.stringify(traders));
+            renderTraders();
+            
+            nameInput.value = '';
+            amountInput.value = '';
+            
+            showNotification('تم إضافة التاجر بنجاح');
+        }
+
+        function deleteTrader(id) {
+            if (confirm('هل أنت متأكد من حذف هذا التاجر؟')) {
+                traders = traders.filter(trader => trader.id !== id);
+                localStorage.setItem('traders', JSON.stringify(traders));
+                renderTraders();
+                showNotification('تم حذف التاجر', 'warning');
+            }
+        }
+
+        function renderTraders() {
+            const tradersList = document.getElementById('tradersList');
+            
+            if (traders.length === 0) {
+                tradersList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users"></i>
+                        <h4>لا يوجد تجار</h4>
+                        <p>أضف تاجر جديد للبدء</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            tradersList.innerHTML = traders.map(trader => `
+                <div class="task-item">
+                    <div class="task-header">
+                        <div class="task-content">
+                            <div>
+                                <div class="task-text" style="font-weight: 600;">${trader.name}</div>
+                                <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">
+                                    المبلغ: ${trader.amount} | ${new Date(trader.createdAt).toLocaleDateString('ar-SA')}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="task-actions">
+                            <button class="btn btn-danger btn-sm" onclick="deleteTrader(${trader.id})">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // WhatsApp Integration
+        const WHATSAPP_API_BASE = 'http://localhost:5000/api/whatsapp';
+        
+        async function sendWhatsAppNotification(message = null, type = 'general', taskName = '') {
+            try {
+                const phoneNumber = '+963992223739';
+                const defaultMessage = 'تحديث من مذكرة الكوتش - دمشق محافظة';
+                const finalMessage = message || defaultMessage;
+                
+                // إرسال الإشعار عبر API
+                const response = await fetch(`${WHATSAPP_API_BASE}/send-notification`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: finalMessage,
+                        phone: phoneNumber,
+                        task_name: taskName,
+                        type: type
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // فتح رابط الواتساب
+                    window.open(result.whatsapp_url, '_blank');
+                    showNotification('تم فتح واتساب لإرسال الإشعار');
+                } else {
+                    // Fallback to direct WhatsApp link
+                    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
+                    window.open(whatsappUrl, '_blank');
+                    showNotification('تم فتح واتساب (الطريقة المباشرة)');
+                }
+                
+            } catch (error) {
+                console.error('Error sending WhatsApp notification:', error);
+                // Fallback to direct WhatsApp link
+                const phoneNumber = '+963992223739';
+                const defaultMessage = 'تحديث من مذكرة الكوتش - دمشق محافظة';
+                const finalMessage = message || defaultMessage;
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(finalMessage)}`;
+                window.open(whatsappUrl, '_blank');
+                showNotification('تم فتح واتساب (الطريقة المباشرة)');
+            }
+        }
+
+        async function sendTaskCompletionNotification(taskName) {
+            try {
+                const response = await fetch(`${WHATSAPP_API_BASE}/send-task-completion`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        task_name: taskName,
+                        phone: '+963992223739'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.open(result.whatsapp_url, '_blank');
+                } else {
+                    throw new Error(result.message);
+                }
+                
+            } catch (error) {
+                console.error('Error sending task completion notification:', error);
+                // Fallback
+                sendWhatsAppNotification(`✅ تم إنجاز المهمة: ${taskName}`, 'task_completed', taskName);
+            }
+        }
+
+        async function sendTimerFinishedNotification(taskName, duration) {
+            try {
+                const response = await fetch(`${WHATSAPP_API_BASE}/send-timer-notification`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        task_name: taskName,
+                        duration: duration,
+                        phone: '+963992223739'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.open(result.whatsapp_url, '_blank');
+                } else {
+                    throw new Error(result.message);
+                }
+                
+            } catch (error) {
+                console.error('Error sending timer notification:', error);
+                // Fallback
+                sendWhatsAppNotification(`⏰ انتهى الوقت المحدد للمهمة: ${taskName}`, 'timer_finished', taskName);
+            }
+        }
+
+        async function sendDailySummary() {
+            try {
+                const completedTasks = tasks.filter(task => task.completed).length;
+                const pendingTasks = tasks.filter(task => !task.completed).length;
+                const totalTime = tasks.reduce((sum, task) => sum + (task.time || 0), 0);
+                
+                const response = await fetch(`${WHATSAPP_API_BASE}/send-daily-summary`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        completed_tasks: completedTasks,
+                        pending_tasks: pendingTasks,
+                        total_time: totalTime,
+                        phone: '+963992223739'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    window.open(result.whatsapp_url, '_blank');
+                    showNotification('تم إنشاء الملخص اليومي');
+                } else {
+                    throw new Error(result.message);
+                }
+                
+            } catch (error) {
+                console.error('Error sending daily summary:', error);
+                // Fallback
+                const completedTasks = tasks.filter(task => task.completed).length;
+                const pendingTasks = tasks.filter(task => !task.completed).length;
+                const message = `📊 الملخص اليومي:\n✅ المهام المنجزة: ${completedTasks}\n⏳ المهام المتبقية: ${pendingTasks}`;
+                sendWhatsAppNotification(message, 'daily_summary');
+            }
+        }
+
+        // Request notification permission
+        function requestNotificationPermission() {
+            if ('Notification' in window && Notification.permission === 'default') {
+                Notification.requestPermission();
+            }
+        }
+
+        // Initialize the app
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTasks();
+            renderNotes();
+            renderTransactions();
+            renderTraders();
+            requestNotificationPermission();
+            
+            // Set today's date as default
+            document.getElementById('transDate').value = new Date().toISOString().split('T')[0];
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'Enter':
+                        e.preventDefault();
+                        const activeTab = document.querySelector('.tab-content.active');
+                        if (activeTab.id === 'tasks') addTask();
+                        else if (activeTab.id === 'notes') addNote();
+                        else if (activeTab.id === 'transactions') addTransaction();
+                        else if (activeTab.id === 'traders') addTrader();
+                        break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
